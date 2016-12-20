@@ -86,7 +86,7 @@ const App = (props) => {
 store.subscribe(function() {
   render(<App 
     counterValue={store.getState().counter}
-    lastMessage={store.getState().lastMessage},
+    lastMessage={store.getState().lastMessage}
     getFact={getFact}
     fact={store.getState().fact}
     />, document.querySelector('.container'))
