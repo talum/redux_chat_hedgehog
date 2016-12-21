@@ -4,7 +4,7 @@ const RoomsReducer = (state={}, action) => {
       return action.payload.rooms
     case "NEW_MESSAGE":
       let {room, content, user} = action.payload //ES2015 destructuring. Object has keys; assign the value of the key room to room, content to content, user to user
-      let roomToBeUpdated = state[room]
+      let roomToBeUpdated = state[room] || []
       let newMessage = { content, user}
       let newMessageList = roomToBeUpdated.concat([newMessage]) //new array with both things in it
       // same as let newMessageList = [...roomToBeUpdated, newMessage] // spread operator 
