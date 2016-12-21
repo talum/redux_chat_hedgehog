@@ -7,9 +7,16 @@ const RoomsReducer = (state={}, action) => {
       let roomToBeUpdated = state[room]
       let newMessage = { content, user}
       let newMessageList = roomToBeUpdated.concat([newMessage]) //new array with both things in it
+      // same as let newMessageList = [...roomToBeUpdated, newMessage] // spread operator 
       let newRooms = Object.assign({}, state, {
         [room]: newMessageList //new version of room with new messages
       })
+      
+      // Object spread operator, available in babel plugin. THe cleaner version of this...take all keys and values from old object, add new key value for object. 
+      // let newRooms = {
+      //   ...state,
+      //   [room]: newMessageList
+      // }
  
       // need to return new object 
        // need to interpolate the value of room so we know what key to update dynamically. dynamic keys
